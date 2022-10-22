@@ -3,4 +3,5 @@ import pandas as pd
 
 
 data = 'traffic_violaions.csv'
-df = pd.read_csv(data, header=None, sep=',\s')
+df = pd.read_csv(data, header=None)
+df.head()

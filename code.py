@@ -37,3 +37,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Multinomial Naïve Bayes classification
 model = MultinomialNB()
+
+model = model.fit(X=X_train,y=y_train)
+y_pred = model.predict(X_test)
+
+from sklearn.metrics import accuracy_score
+print(accuracy_score(y_test,y_pred))

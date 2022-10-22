@@ -4,9 +4,14 @@ import pandas as pd
 
 data = 'traffic_violaions.csv'
 df = pd.read_csv(data, header=None)
-#df.head()
+# df.head()
 
-col_names = ['date','time','cname','gender','raw_age','age','race','raw_violation','violation','search','type','outcome','arrested','duration','drugs']
+col_names = ['date', 'time', 'cname', 'gender', 'raw_age', 'age', 'race', 'raw_violation',
+             'violation', 'search', 'type', 'outcome', 'arrested', 'duration', 'drugs']
 
 df.columns = col_names
 print(df.columns)
+
+categorical = [var for var in df.columns if df[var].dtype == 'O']
+print(df[categorical].isnull().sum())
+print(df.dropna(thresh=2))
